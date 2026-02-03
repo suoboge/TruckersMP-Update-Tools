@@ -1,0 +1,46 @@
+{
+  "name": "tmp-update-tool-v2",
+  "version": "1.0.0",
+  "description": "TMP更新工具 - 智能检测和更新TruckersMP插件文件",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "dist": "npm run build"
+  },
+  "keywords": ["truckersmp", "update", "electron", "windows"],
+  "author": "鹿途鲁班",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "crypto": "^1.0.1"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.lutu.tmpupdate",
+    "productName": "TMP更新工具",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico",
+      "requestedExecutionLevel": "requireAdministrator"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": true
+    }
+  }
+}
